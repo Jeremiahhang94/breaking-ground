@@ -35,6 +35,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { CountdownComponent } from './pages/camper/countdown/countdown.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     LoginAdminComponent,
     RedirectAdminComponent,
     ScheduleCountdownComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    CountdownComponent
   ],
   imports: [
     BrowserModule,
