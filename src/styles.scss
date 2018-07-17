@@ -4,6 +4,10 @@ $red: #B7374A;
 $white: #FEFEFE;
 $grey: #EFEFEF;
 
+* {
+	font-family: Roboto;
+}
+
 td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
     padding: 10px !important;
 }
@@ -19,10 +23,6 @@ body {
 .alert .mat-selection-list .mat-list-item {
 	background-color: $red;
 	color: $white !important;
-}
-
-.countdown {
-	background-color: $grey;
 }
 
 .spinner{

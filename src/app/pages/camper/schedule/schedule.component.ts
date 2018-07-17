@@ -9,7 +9,7 @@ import { ScheduleEntry } from '../../../model/ScheduleEntry.model';
   templateUrl: './schedule.component.html',
   styleUrls: ['./schedule.component.scss']
 })
-export class ScheduleComponent implements AfterViewInit {
+export class ScheduleComponent implements OnInit {
 
   schedulelist: ScheduleEntry[];
   displayLoader: boolean;
@@ -26,30 +26,9 @@ export class ScheduleComponent implements AfterViewInit {
   ) { }
 
   ngOnInit(){
-    this.displayLoader = true; 
+    this.displayLoader = false; 
   }
 
-  ngAfterViewInit() {
-      this.schService.getLatestEntries().subscribe(response => {
-      this.entries = this.sortEntries(response);
-      this.dataSource = this.entries;
-      this.onExpired(null);
-      this.displayLoader = false;
-    })
-  }
-
-  onExpired($event) {
-    if (this.entries) {
-      if ($event == this.entries[0] && this.entries.length > 1) {
-        this.entries.shift();
-        this.countdown.start(this.entries[0]);
-      } else if (this.entries.length > 1) {
-        this.countdown.start(this.entries[0]);
-      } else {
-        this.countdown.start();
-      }
-    }
-  }
 
   sortEntries(entries: ScheduleEntry[]) {
     entries.sort((a, b) => {
