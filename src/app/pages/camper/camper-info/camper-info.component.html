@@ -1,5 +1,30 @@
-<div>
-  <h1> Camper Info </h1> 
-	<mat-progress-spinner *ngIf="displayLoader" mode="indeterminate" class="spinner"></mat-progress-spinner>
-	<pre class = "json-block"> {{ data }} </pre>
-</div>
+<mat-card>
+	<h1 class = 'section-title'> Your Info </h1>
+	<div class='filter'>
+		<mat-form-field class="full-width">
+			<input matInput placeholder="Name" [(ngModel)]="searchedName">
+		</mat-form-field>
+
+		<button mat-raised-button class="seachButton" (click)="searchName($event)">Search</button>
+	</div>
+	<mat-chip-list class='choices'>
+		<mat-chip *ngFor="let choice of choices" (click)="setSelected(choice)"> 
+			{{ choice.getName() }}
+		</mat-chip>
+	</mat-chip-list>
+	<mat-card class='result' *ngIf="selected">
+		<h2 class='name'> {{ selected.getName() }} </h2>
+		<hr/>
+
+		<table>
+			<tr class='accomodation'>
+				<td><label> Accomodation: </label></td>
+				<td><span> {{ selected.getAccomodation() }} </span></td>
+			</tr>
+			<tr class='workshop'>
+				<td><label> Workshop: </label></td>
+				<td><span> {{ selected.getWorkshop() }} </span></td>
+			</tr>
+		</table>
+	</mat-card>
+</mat-card>

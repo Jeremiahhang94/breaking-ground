@@ -1,0 +1,41 @@
+@import "../../../../styles.scss";
+
+.full-width {
+	width: 55vw;
+}
+
+.seachButton, .seachButton.mat-raised-button.mat-primary {
+	width: 20vw;
+	margin-left: 5vw;
+	background-color: $blue;
+	color: white;
+}
+
+h1.section-title {
+	text-align: center;
+	color: $red;
+}
+
+.result {
+	margin-top: 50px;
+	text-align: center;
+}
+
+.name {
+	text-transform: uppercase;
+	color: $red;
+}
+
+table {
+	display: inline-block;
+	text-align: left;
+}
+
+.accomodation span, .workshop span {
+	font-weight: bold;
+}
+
+.accomodation label, .workshop label {
+	font-style: italic;
+	margin-right: 30px;
+}

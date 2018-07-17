@@ -1,4 +1,4 @@
-<a [routerLink]="['schedule']">
+<a [routerLink]="['schedule']" href='#'>
   <mat-card class='campSchedule footerItem' align='center'>
     <h1 class='footer-title'>CAMP SCHEDULE</h1>
     <mat-card-content>
@@ -10,15 +10,17 @@
   </mat-card>
 </a>
 
-<mat-card class='campersInfo footerItem' align='center'>
-  <h1 class='footer-title'>CAMPERS INFO</h1>
-  <mat-card-content>
-    <p class='footerText'>Check out what workshop you belong to and what to bring for it</p>
-  </mat-card-content>
-  <mat-card-actions>
-    <mat-icon svgIcon="forward-arrow">-></mat-icon>
-  </mat-card-actions>
-</mat-card>
+<a [routerLink]="['camper']" href='#'>
+  <mat-card class='campersInfo footerItem' align='center'>
+    <h1 class='footer-title'>CAMPERS INFO</h1>
+    <mat-card-content>
+      <p class='footerText'>Check out what workshop you belong to and what to bring for it</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <mat-icon svgIcon="forward-arrow">-></mat-icon>
+    </mat-card-actions>
+  </mat-card>
+</a>
 
 <mat-card class='thanksgiving footerItem' align='center'>
   <h1 class='footer-title'>THANKSGIVING</h1>
