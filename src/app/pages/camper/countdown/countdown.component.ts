@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { interval } from 'rxjs';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-countdown',
@@ -14,12 +15,14 @@ export class CountdownComponent implements OnInit {
   seconds = '0';
   displayCountdown = true;
   countdownOver = false;
+  logoSrc:string;
 
   constructor() { }
 
   ngOnInit() {
     var campDay1 = new Date(2018, 6, 20); // 20th July
     this.activateCountdown(campDay1);
+    this.logoSrc = environment.logoSrc;
   }
 
   /**
