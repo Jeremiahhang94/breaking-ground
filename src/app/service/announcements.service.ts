@@ -11,35 +11,10 @@ import { ExtractTopK } from '../utils/entries.util';
 export class AnnouncementsService {
 
 	sheetname = "announcements";
+	range = "A:A"
 
 	public getSheet() {
-		return this.googleSheetService.load(this.sheetname)
-	}
-
-	public getLatestEntries(limit: number):Observable<any> {
-		return Observable.create(observer => {
-			this.getSheet().subscribe(response => {
-				const latestEntries = ExtractTopK(response.values, limit, AnnouncementEntry.FromSheet)
-		        observer.next(latestEntries);
-		        observer.complete();
-			});
-		});
-	}
-
-	public multiAppendSheet(announcements: AnnouncementEntry[]):Observable<any> {
-		return this.googleSheetService.append(
-			this.sheetname, 
-			announcements.map(anno => anno.toSheet()), 
-			this.googleOAuthService.getAccessToken()
-		);
-	}
-
-	public appendSheet(announcement: AnnouncementEntry):Observable<any> {
-		return this.googleSheetService.append(
-			this.sheetname, 
-			[announcement.toSheet()], 
-			this.googleOAuthService.getAccessToken()
-		);
+		return this.googleSheetService.load(this.sheetname, this.range);
 	}
 
   constructor(

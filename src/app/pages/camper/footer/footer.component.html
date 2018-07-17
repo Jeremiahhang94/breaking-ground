@@ -1,56 +1,42 @@
-<mat-card class='campSchedule' align='center'>
-  <a mat-button class='footerTitle' href="">
-    <h1>CAMP SCHEDULE</h1>
-  </a>
-  <mat-card-content>
-    <p class='footerText'>Find out what programme is happening now, later and what to bring</p>
-  </mat-card-content>
-  <mat-card-actions>
-    <a mat-icon-button>
-      <mat-icon svgIcon="forward-arrow">-></mat-icon>
-    </a>
-  </mat-card-actions>
-</mat-card>
+<a [routerLink]="['schedule']">
+  <mat-card class='campSchedule footerItem' align='center'>
+    <h1 class='footer-title'>CAMP SCHEDULE</h1>
+    <mat-card-content>
+      <p class='footerText'>Find out what programme is happening now, later and what to bring</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <mat-icon class="black" svgIcon="forward-arrow">-></mat-icon>
+    </mat-card-actions>
+  </mat-card>
+</a>
 
-<mat-card class='campersInfo' align='center'>
-  <a mat-button class='footerTitle' href="">
-    <h1>CAMPERS INFO</h1>
-  </a>
+<mat-card class='campersInfo footerItem' align='center'>
+  <h1 class='footer-title'>CAMPERS INFO</h1>
   <mat-card-content>
     <p class='footerText'>Check out what workshop you belong to and what to bring for it</p>
   </mat-card-content>
   <mat-card-actions>
-    <a mat-icon-button>
-      <mat-icon svgIcon="forward-arrow">-></mat-icon>
-    </a>
+    <mat-icon svgIcon="forward-arrow">-></mat-icon>
   </mat-card-actions>
 </mat-card>
 
-<mat-card class='thanksgiving' align='center'>
-  <a mat-button class='footerTitle' href="">
-    <h1>THANKSGIVING</h1>
-  </a>
+<mat-card class='thanksgiving footerItem' align='center'>
+  <h1 class='footer-title'>THANKSGIVING</h1>
   <mat-card-content>
     <p class='footerText'>Share with us your testimonies and breakthroughs during camp!</p>
   </mat-card-content>
   <mat-card-actions>
-    <a mat-icon-button>
-      <mat-icon svgIcon="forward-arrow">-></mat-icon>
-    </a>
+    <mat-icon svgIcon="forward-arrow">-></mat-icon>
   </mat-card-actions>
 </mat-card>
 
-<mat-card class='campInfo' align='center'>
-  <a mat-button class='footerTitle' href="">
-    <h1>CAMP INFO</h1>
-  </a>
+<mat-card class='campInfo footerItem' align='center'>
+  <h1 class='footer-title'>CAMP INFO</h1>
   <mat-card-content>
     <p class='footerText'>Emergency hotline, lost and found, and administrative matters</p>
   </mat-card-content>
   <mat-card-actions>
-    <a mat-icon-button>
-      <mat-icon svgIcon="forward-arrow">-></mat-icon>
-    </a>
+    <mat-icon svgIcon="forward-arrow">-></mat-icon>
   </mat-card-actions>
 </mat-card>
 

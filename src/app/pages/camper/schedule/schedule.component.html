@@ -1,24 +1,14 @@
 <mat-spinner class="spinner" *ngIf="displayLoader"></mat-spinner> 
-<mat-card style='background-color:#034f80;'> 
+<mat-card class='base'> 
 
-  <h1 align='center'  style='opacity: 0.4; color:white'>UP NEXT</h1>
+  <h1 align='center' class='section-title spaced' >Up Coming</h1>
   
-  <mat-card class='cards'>
-    <h1 class='title1'>TIME</h1>
-    <p class='text1'>ACTIVITY</p>
+
+  <mat-card class='cards' *ngFor="let schedule of schedulelist">
+    <h3 class='time'>{{ schedule.getTime() }}</h3>
+    <hr/>
+    <p class='event'><b>{{ schedule.getEvent() }}</b></p>
+    <p class='remarks'>{{ schedule.getRemarks() }}</p>
   </mat-card>
 
-  <div class='spacer'></div>
-
-  <mat-card class='cards'>
-    <h1 class='title2'>TIME</h1>
-    <p class='text2'>ACTIVITY</p>
-  </mat-card>
-
-  <div class='spacer'></div>
-
-  <mat-card class='cards'>
-    <h1 class='title3'>TIME</h1>
-    <p class='text3'>ACTIVITY</p>
-  </mat-card>
 </mat-card>

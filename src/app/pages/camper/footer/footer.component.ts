@@ -10,7 +10,9 @@ import { MatIconRegistry } from '@angular/material';
 export class FooterComponent implements OnInit {
   pictureIG:any;
 
-  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+  constructor(
+    iconRegistry: MatIconRegistry, 
+    sanitizer: DomSanitizer) {
     iconRegistry.addSvgIcon(
       'forward-arrow',
       sanitizer.bypassSecurityTrustResourceUrl('assets/images/forward-arrow.svg'));
@@ -27,6 +29,7 @@ export class FooterComponent implements OnInit {
   ngOnInit() {
     this.pictureIG = '.src/assets/images/instagram-logo.png';
   }
+
 }
 
 

@@ -1,21 +1,14 @@
 import { IndexedObject } from "./IndexedObject.model";
 
-export class AnnouncementEntry extends IndexedObject{
+export class AnnouncementEntry{
 	private description: string;
 
-	constructor(id: number, description: string, deleted?:number) {
-		if (deleted == null) {
-			deleted = 0;
-		}
-		super(id, deleted);
+	constructor(description: string) {
 		this.description = description;
 	}
 
 	static FromSheet(values: any[]): AnnouncementEntry {
-		const annoEntry = new AnnouncementEntry(0, "", 1);
-		annoEntry.setId(values[0]);
-		annoEntry.setDeleted(values[1]);
-		annoEntry.setDescription(values[2]);
+		const annoEntry = new AnnouncementEntry(values[0]);
 		return annoEntry;
 	}
 
@@ -28,6 +21,6 @@ export class AnnouncementEntry extends IndexedObject{
 	}
 
 	toSheet(): any[] {
-		return [this.getId(), this.getDeleted(), this.description];
+		return [this.description];
 	}
 }

@@ -5,35 +5,49 @@
   line-height: $size;
 }
 
+a {
+  text-decoration: none;
+}
+
+.footerText {
+  width: 80%;
+  display: inline-block;
+}
+
 .mat-icon {
  color: white;
  @include md-icon-size(9vw)
 }
 
-.footerText {
-    font-size: 4vw;  
-}
-
 .campSchedule {
     color: black;
     background-color: #efefef;
-    height: 33vh;
 }
 
 .campersInfo {
     color: white;
     background-color: #999997;
-    height: 33vh;
 }
 
 .thanksgiving {
     color: white;
     background-color: #414141;
-    height: 33vh;
 }
 
 .campInfo {
     color: white;
     background-color: #1e1e24;
-    height: 33vh;
+}
+
+.footerItem {
+  height: 27vh;
+  text-align: center;
+}
+
+.black {
+  color: black;
+}
+
+.black svg {
+  fill: black;
 }

@@ -1,11 +1,18 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-$red: #B7374A;
+$red: #DA3C45;
+$blue: #3454D1;
 $white: #FEFEFE;
-$grey: #EFEFEF;
+$black: #1E1E24;
 
 * {
 	font-family: Roboto;
+}
+
+p {
+	font-size: 16px;
+	font-weight: 300;
+	letter-spacing: .1em;
 }
 
 td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
@@ -29,6 +36,15 @@ body {
 	position: absolute;
     left: calc(50% - 45px);
     margin:10px; 
+}
+
+.section-title {
+	color: white;
+	text-transform: uppercase;
+}
+
+.section-title.spaced {
+	letter-spacing: 0.3em;
 }
 
 @keyframes spin {
