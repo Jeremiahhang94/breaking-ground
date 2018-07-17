@@ -9,20 +9,11 @@ import { ScheduleEntry } from '../model/ScheduleEntry.model';
 })
 export class ScheduleService {
 
-  sheetname = "schedule";
+  sheetname = "day";
+  range = "A:E"
 
-  public getSheet() {
-    return this.googleSheetService.load(this.sheetname)
-  }
-
-  public getLatestEntries(limit: number = 0):Observable<any> {
-    return Observable.create(observer => {
-      this.getSheet().subscribe(response => {
-        const latestEntries = ExtractTopK(response.values, limit, ScheduleEntry.FromSheet)
-        observer.next(latestEntries);
-        observer.complete();
-      })
-    });
+  public getSheet(day: number) {
+    return this.googleSheetService.load(`${this.sheetname}${day}`, this.range);
   }
 
   constructor(

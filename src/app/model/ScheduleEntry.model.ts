@@ -1,45 +1,44 @@
 import { AnnouncementEntry } from "./AnnouncementEntry.model";
 import { CAMP_DAYS } from "../utils/campInfo.util";
 
-export class ScheduleEntry extends AnnouncementEntry {
+export class ScheduleEntry {
 	private day: number;
-	private startTime: number;
-	private endTime: number;
-	private info: string;
+	private time: string;
+	private event: string;
+	private venue: string;
+	private remarks: string;
+	private countdownTo: string;
+	private date: Date;
 
-	constructor(id: number, description: string, day: number, startTime: number, endTime: number, info?: string, deleted?: number) {
-		super(id, description, deleted);
+	constructor(day: number, time: string, event: string, venue: string, remarks: string, countdownTo: string) {
 		this.day = day;
-		this.startTime = startTime;
-		this.endTime = endTime;
-		this.info = info;
+		this.time = time;
+		this.event = event;
+		this.venue = venue || '';
+		this.remarks = remarks || '';
+		this.countdownTo = countdownTo;
+
+		const timeArr = time.split(":");
+		const date = CAMP_DAYS[day];
+		const hour = timeArr[0];
+		const minute = timeArr[1];
+		this.date = new Date(`2018-07-${date}T${hour}:${minute}:00`);
+
 	}
 
-	getStartDate(): Date {
-		const campDay = CAMP_DAYS[this.day];
-	    const hour = this.startTime / 100;
-	    const minute = this.startTime % 100;
-	    return new Date(2018, 6,  +campDay, +hour, +minute);
+	getDay(): number { return this.day; }
+	getTime(): string { return this.time; }
+	getEvent(): string { return this.event; }
+	getVenue(): string { return this.venue; }
+	getRemarks(): string { return this.remarks; }
+	getCountdownTo(): string { return this.countdownTo; }
+
+	isPast(comparedTo: Date): boolean {
+		return this.date < comparedTo;
 	}
 
-	getDay(): number {
-		return this.day;
-	}
-
-	getStartTime(): number {
-		return this.startTime;
-	}
-
-	getEndTime(): number {
-		return this.endTime;
-	}
-
-	getInfo(): string {
-		return this.info;
-	}
-
-	static FromSheet(sheet: string[]): ScheduleEntry {
-		return new ScheduleEntry(+sheet[0], sheet[2], +sheet[3], +sheet[4], +sheet[5], sheet[6], +sheet[1]);
+	static FromSheet(day: number, sheet: string[]): ScheduleEntry {
+		return new ScheduleEntry(day, sheet[0], sheet[1], sheet[2], sheet[3], sheet[4]);
 	}
 	
 }

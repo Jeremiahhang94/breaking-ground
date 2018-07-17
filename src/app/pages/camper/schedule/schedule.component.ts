@@ -1,65 +1,54 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { ScheduleService } from "../../../service/schedule.service";
-import { interval } from "rxjs"
-import { ScheduleCountdownComponent } from './schedule-countdown/schedule-countdown.component';
 import { ScheduleEntry } from '../../../model/ScheduleEntry.model';
+import { CAMP_DAYS } from '../../../utils/campInfo.util';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-schedule',
   templateUrl: './schedule.component.html',
   styleUrls: ['./schedule.component.scss']
 })
-export class ScheduleComponent implements AfterViewInit {
+export class ScheduleComponent implements OnInit {
 
   schedulelist: ScheduleEntry[];
   displayLoader: boolean;
-
-  header: any;
-  dataSource: ScheduleEntry[];
-  displayedColumns = ['day', 'time', 'event', 'info'];
-  entries: ScheduleEntry[];
-
-  @ViewChild(ScheduleCountdownComponent) countdown;
+  campIsOver = false;
 
   constructor(
-    public schService:ScheduleService
+    public scheduleService:ScheduleService
   ) { }
 
   ngOnInit(){
-    this.displayLoader = true; 
+    this.displayLoader = false; 
+
+    const today = new Date().getDate();
+    this.loadSchedule(today);
   }
 
-  ngAfterViewInit() {
-      this.schService.getLatestEntries().subscribe(response => {
-      this.entries = this.sortEntries(response);
-      this.dataSource = this.entries;
-      this.onExpired(null);
-      this.displayLoader = false;
-    })
-  }
-
-  onExpired($event) {
-    if (this.entries) {
-      if ($event == this.entries[0] && this.entries.length > 1) {
-        this.entries.shift();
-        this.countdown.start(this.entries[0]);
-      } else if (this.entries.length > 1) {
-        this.countdown.start(this.entries[0]);
-      } else {
-        this.countdown.start();
-      }
+  private loadSchedule(today) {
+    if (today < CAMP_DAYS[1]) {
+      this.fetch(1);
+    } else if (today < CAMP_DAYS[2]) {
+      this.fetch(2);
+    } else if (today < CAMP_DAYS[3]) {
+      this.fetch(3);
+    } else {
+      this.campIsOver = true;
     }
   }
 
-  sortEntries(entries: ScheduleEntry[]) {
-    entries.sort((a, b) => {
-      if (+a.getDay() < +b.getDay() ||
-        +a.getDay() === +b.getDay() && +a.getStartTime() < +b.getStartTime()) {
-        return -1;
-      } 
-      return 1;
+  private fetch(day) {
+    const now = new Date();
+    this.scheduleService.getSheet(day).subscribe(res => {
+      this.schedulelist = _(res.values)
+                            .drop()
+                            .map(data => ScheduleEntry.FromSheet(day, data))
+                            .dropWhile(entry => entry.isPast(now))
+                            .slice(0, 3)
+                            .toArray().value();
+      console.log(this.schedulelist);
     })
-    return entries;
   }
 
 

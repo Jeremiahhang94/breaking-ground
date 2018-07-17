@@ -7,9 +7,10 @@ import { GooglesheetService } from './googlesheet.service';
 export class FeedbackService {
 
 	sheetname = "feedback";
+	range = "A:E"
 
 	public getSheet() {
-		return this.googleSheetService.load(this.sheetname)
+		return this.googleSheetService.load(this.sheetname, this.range)
 	}
 
   constructor(

@@ -1,0 +1,25 @@
+<div class = 'component' id = 'countdown' *ngIf="displayCountdown">
+	<div class='image-holder'>
+
+		<img src='/assets/images/background.png'/>
+
+	</div>
+	<div id="timer">
+		<div class = 'time-component'>
+			<span> {{ days }} </span><br/>
+			<span class = "time-description"> Days </span>
+		</div>
+		<div class = 'time-component'>
+			<span> {{ hours }} </span><br/>
+			<span class = "time-description"> Hours </span>
+		</div> 
+		<div class = 'time-component'>
+			<span> {{ minutes }} </span><br/>
+			<span class = "time-description"> Minutes </span>
+		</div>
+		<div class = 'time-component'>
+			<span> {{ seconds }} </span><br/>
+			<span class = "time-description"> Seconds </span>
+		</div>
+	</div>
+</div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AnnouncementsService } from "../../../service/announcements.service";
 import { AnnouncementEntry } from "../../../model/AnnouncementEntry.model";
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-announcements',
@@ -9,7 +10,7 @@ import { AnnouncementEntry } from "../../../model/AnnouncementEntry.model";
 })
 export class AnnouncementsComponent implements OnInit {
   
-  announcementlist: AnnouncementEntry[];
+  announcementlist: AnnouncementEntry[] = [];
   displayLoader: boolean;
   
   constructor(
@@ -19,9 +20,9 @@ export class AnnouncementsComponent implements OnInit {
   ngOnInit() {
 
     this.displayLoader = true;
-    this.annoService.getLatestEntries(5).subscribe(response => {
-      this.announcementlist = response;
-      this.displayLoader = false; 
+    this.annoService.getSheet().subscribe(res => {
+      this.announcementlist = _(res.values).drop().map(anno => AnnouncementEntry.FromSheet(anno))
+                                    .toArray().value();
     })
   }
 

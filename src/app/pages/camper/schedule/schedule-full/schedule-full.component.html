@@ -1,0 +1,13 @@
+<h1> Camp Schedule </h1>
+<div class='day' *ngFor="let schedulelist of schedulelists; let i = index">
+	<div class='dayNumber'> {{i + 1}}</div>
+	<div class='scheduleList'>
+		<div class='schedule' *ngFor="let schedule of schedulelist">
+			<div class='time'>{{ schedule.getTime() }}</div>
+			<hr/>
+			<div class='event'>{{ schedule.getEvent() }}</div>
+			<div class='venue'>{{ schedule.getVenue() }}</div>
+			<div class='remarks'>{{ schedule.getRemarks() }}</div>
+		</div>
+	</div>
+</div>

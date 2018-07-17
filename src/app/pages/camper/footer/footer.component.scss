@@ -1,0 +1,53 @@
+@mixin md-icon-size($size: 9vw) {
+  font-size: $size;
+  height: $size;
+  width: $size;
+  line-height: $size;
+}
+
+a {
+  text-decoration: none;
+}
+
+.footerText {
+  width: 80%;
+  display: inline-block;
+}
+
+.mat-icon {
+ color: white;
+ @include md-icon-size(9vw)
+}
+
+.campSchedule {
+    color: black;
+    background-color: #efefef;
+}
+
+.campersInfo {
+    color: white;
+    background-color: #999997;
+}
+
+.thanksgiving {
+    color: white;
+    background-color: #414141;
+}
+
+.campInfo {
+    color: white;
+    background-color: #1e1e24;
+}
+
+.footerItem {
+  height: 27vh;
+  text-align: center;
+}
+
+.black {
+  color: black;
+}
+
+.black svg {
+  fill: black;
+}

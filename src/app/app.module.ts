@@ -9,18 +9,12 @@ import { ScheduleComponent } from './pages/camper/schedule/schedule.component';
 import { CamperInfoComponent } from './pages/camper/camper-info/camper-info.component';
 import { FeedbackComponent } from './pages/camper/feedback/feedback.component';
 import { TestimonyComponent } from './pages/camper/testimony/testimony.component';
-import { AnnouncementsAdminComponent } from './pages/admin/announcements-admin/announcements-admin.component';
-import { ScheduleAdminComponent } from './pages/admin/schedule-admin/schedule-admin.component';
-import { CamperInfoAdminComponent } from './pages/admin/camper-info-admin/camper-info-admin.component';
-import { FeedbackAdminComponent } from './pages/admin/feedback-admin/feedback-admin.component';
-import { TestimonyAdminComponent } from './pages/admin/testimony-admin/testimony-admin.component';
 import { HomeComponent } from './pages/camper/home/home.component';
-import { HomeAdminComponent } from './pages/admin/home-admin/home-admin.component';
-import { LoginAdminComponent } from './pages/admin/login-admin/login-admin.component';
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './pages/camper/footer/footer.component';
 
-import { ScheduleCountdownComponent } from './pages/camper/schedule/schedule-countdown/schedule-countdown.component';
-import { RedirectAdminComponent } from './pages/admin/redirect-admin/redirect-admin.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { CountdownComponent } from './pages/camper/countdown/countdown.component';
 
 // Material Modules
 import { MatTableModule } from '@angular/material/table';
@@ -34,7 +28,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { MatIconModule } from '@angular/material';
+import { ScheduleFullComponent } from './pages/camper/schedule/schedule-full/schedule-full.component';
 
 @NgModule({
   declarations: [
@@ -44,17 +39,11 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     CamperInfoComponent,
     FeedbackComponent,
     TestimonyComponent,
-    AnnouncementsAdminComponent,
-    ScheduleAdminComponent,
-    CamperInfoAdminComponent,
-    FeedbackAdminComponent,
-    TestimonyAdminComponent,
     HomeComponent,
-    HomeAdminComponent,
-    LoginAdminComponent,
-    RedirectAdminComponent,
-    ScheduleCountdownComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    CountdownComponent,
+    FooterComponent,
+    ScheduleFullComponent
   ],
   imports: [
     BrowserModule,
@@ -75,8 +64,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     MatCardModule,
     MatListModule, 
     MatDividerModule,
-    MatProgressSpinnerModule
-
+    MatProgressSpinnerModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
