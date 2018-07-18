@@ -31,6 +31,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material';
 import { ScheduleFullComponent } from './pages/camper/schedule/schedule-full/schedule-full.component';
+import { RedirectComponent } from './pages/camper/redirect/redirect.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { ScheduleFullComponent } from './pages/camper/schedule/schedule-full/sch
     CountdownComponent,
     FooterComponent,
     ScheduleFullComponent,
+    RedirectComponent,
   ],
   imports: [
     BrowserModule,
