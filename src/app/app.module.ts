@@ -15,6 +15,7 @@ import { FooterComponent } from './pages/camper/footer/footer.component';
 
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { CountdownComponent } from './pages/camper/countdown/countdown.component';
+import { HeaderComponent } from './pages/camper/header/header.component';
 
 // Material Modules
 import { MatTableModule } from '@angular/material/table';
@@ -32,6 +33,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material';
 import { ScheduleFullComponent } from './pages/camper/schedule/schedule-full/schedule-full.component';
 import { RedirectComponent } from './pages/camper/redirect/redirect.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,7 @@ import { RedirectComponent } from './pages/camper/redirect/redirect.component';
     FooterComponent,
     ScheduleFullComponent,
     RedirectComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,6 +73,7 @@ import { RedirectComponent } from './pages/camper/redirect/redirect.component';
     MatProgressSpinnerModule,
     MatIconModule,
     MatChipsModule,
+    MatToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
