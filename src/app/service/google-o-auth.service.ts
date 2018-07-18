@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { ActivatedRoute } from '@angular/router';
+import * as _ from 'lodash';
 
 @Injectable({
   providedIn: 'root'
@@ -19,13 +21,33 @@ export class GoogleOAuthService {
 
   
 
-  constructor(public http:HttpClient) { 
+  constructor(
+    public http:HttpClient,
+    public route:ActivatedRoute
+  ) { 
     this.apiEndPoint = this.endpoint + "?" + Array.prototype.join.call([
         "scope=" + this.scopes,
         "response_type=" + this.responseType,
         "redirect_uri=" + this.redirectUri,
         "client_id=" + this.clientId
       ], "&");
+  }
+
+  extractAccessTokenFromUrl(): Observable<any> {
+    return Observable.create(observer => {
+      this.route.fragment.subscribe(params => {
+        if (params) {
+          const accessToken = {};
+          _(params).split('&').each(frag => {
+            const parts = _.split(frag, '=');
+            return accessToken[parts[0]] = parts[1];
+          });
+          this.saveOAuth(accessToken);
+        }
+        observer.next(true);
+        observer.complete();
+      });
+    });
   }
 
   getAuthUrl(): String {

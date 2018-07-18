@@ -1,9 +1,14 @@
-<mat-card class = 'countdown'>
-	<app-countdown></app-countdown>
-</mat-card> 
-<mat-card class = 'full'>
-	<app-announcements></app-announcements>
-</mat-card>
-<mat-card class = 'full'>
-	<app-schedule></app-schedule>
-</mat-card> 
+<ng-container *ngIf="isLoggedIn()">
+	<mat-card class = 'countdown'>
+		<app-countdown></app-countdown>
+	</mat-card> 
+	<mat-card class = 'full'>
+		<app-announcements></app-announcements>
+	</mat-card>
+	<mat-card class = 'full'>
+		<app-schedule></app-schedule>
+	</mat-card> 
+</ng-container>
+<ng-container *ngIf="!isLoggedIn()">
+	<a [href]="getLoginUrl()"><button mat-raised-button> Login </button></a>
+</ng-container>

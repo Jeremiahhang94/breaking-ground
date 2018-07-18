@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GoogleOAuthService } from '../../../service/google-o-auth.service';
 
 @Component({
   selector: 'app-home', 
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(public googleOAuthService:GoogleOAuthService) { }
 
   ngOnInit() {
+  }
+
+  isLoggedIn() {
+  	return this.googleOAuthService.hasOAuth();
+  }
+
+  getLoginUrl() {
+  	return this.googleOAuthService.getAuthUrl();
   }
 
 }

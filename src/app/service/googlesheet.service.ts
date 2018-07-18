@@ -2,19 +2,23 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Rx';
 import { environment } from '../../environments/environment';
+import { GoogleOAuthService } from './google-o-auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GooglesheetService {
 
-  API_KEY = "AIzaSyAuPPsTAsNyQc4UiByhjvP4kGc_chB0DqA";
   SHEET_ID = environment.sheetId;
 
   public load(sheetname: string, range: string):Observable<any> {
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${this.SHEET_ID}/values/${sheetname}!${range}?key=${this.API_KEY}`;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.googleOAuthService.getAccessToken()}`
+    });
+    const url = `https://sheets.googleapis.com/v4/spreadsheets/${this.SHEET_ID}/values/${sheetname}!${range}`;
 
-    return this.http.get(url);
+    return this.http.get(url, { headers });
   }
 
   public append(sheetname: string, values: any, access_token: String) {
@@ -35,7 +39,8 @@ export class GooglesheetService {
   }
 
   constructor(
-  	public http:HttpClient
+  	public http:HttpClient,
+    public googleOAuthService:GoogleOAuthService
   ) { }
 
 }

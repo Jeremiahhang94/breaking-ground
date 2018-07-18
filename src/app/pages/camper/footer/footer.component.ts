@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material';
+import { GoogleOAuthService } from '../../../service/google-o-auth.service';
 
 @Component({
   selector: 'app-footer',
@@ -8,26 +9,22 @@ import { MatIconRegistry } from '@angular/material';
   styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent implements OnInit {
-  pictureIG:any;
 
   constructor(
     iconRegistry: MatIconRegistry, 
-    sanitizer: DomSanitizer) {
+    sanitizer: DomSanitizer,
+  	public googleOAuthService: GoogleOAuthService
+  ) {
     iconRegistry.addSvgIcon(
       'forward-arrow',
       sanitizer.bypassSecurityTrustResourceUrl('assets/images/forward-arrow.svg'));
-
-    iconRegistry.addSvgIcon(
-      'fb',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/images/facebook-logo.svg'));
-
-    iconRegistry.addSvgIcon(
-      'ig',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/images/instagram-logo.svg'));
   }
 
   ngOnInit() {
-    this.pictureIG = '.src/assets/images/instagram-logo.png';
+  }
+
+  isLoggedIn() {
+  	return this.googleOAuthService.hasOAuth();
   }
 
 }
