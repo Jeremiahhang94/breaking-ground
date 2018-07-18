@@ -5,6 +5,7 @@ import { HomeComponent } from "./pages/camper/home/home.component";
 import { NotFoundComponent } from "./pages/not-found/not-found.component";
 import { ScheduleFullComponent } from "./pages/camper/schedule/schedule-full/schedule-full.component";
 import { CamperInfoComponent } from "./pages/camper/camper-info/camper-info.component";
+import { RedirectComponent } from "./pages/camper/redirect/redirect.component";
 
 const routes: Routes = [
 	{
@@ -18,6 +19,10 @@ const routes: Routes = [
 	{
 		path: 'camper',
 		component: CamperInfoComponent
+	},
+	{
+		path: 'redirect',
+		component: RedirectComponent
 	},
 	{
 		path: '**',
