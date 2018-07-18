@@ -9,6 +9,7 @@ export class ScheduleEntry {
 	private remarks: string;
 	private countdownTo: string;
 	private date: Date;
+	private countdownFromDate: Date;
 
 	constructor(day: number, time: string, event: string, venue: string, remarks: string, countdownTo: string) {
 		this.day = day;
@@ -24,6 +25,10 @@ export class ScheduleEntry {
 		const minute = timeArr[1];
 		this.date = new Date(`2018-07-${date}T${hour}:${minute}:00`);
 
+		if (this.countdownTo) {
+			this.countdownFromDate = new Date((+this.date) - (+this.countdownTo) * 60000); 
+		}
+
 	}
 
 	getDay(): number { return this.day; }
@@ -32,9 +37,18 @@ export class ScheduleEntry {
 	getVenue(): string { return this.venue; }
 	getRemarks(): string { return this.remarks; }
 	getCountdownTo(): string { return this.countdownTo; }
+	getDate(): Date { return this.date; }
 
 	isPast(comparedTo: Date): boolean {
 		return this.date < comparedTo;
+	}
+
+	shouldCountdownTo(): boolean {
+		return this.getCountdownFromDate() === null;
+	}
+
+	getCountdownFromDate(): Date {
+		return this.countdownFromDate;
 	}
 
 	static FromSheet(day: number, sheet: string[]): ScheduleEntry {

@@ -21,6 +21,7 @@ export class ScheduleFullComponent implements OnInit {
     this.fetch(1);
     this.fetch(2);
     this.fetch(3);
+    window.scrollTo(0, 0);
   }
 
   private fetch(day:number) {

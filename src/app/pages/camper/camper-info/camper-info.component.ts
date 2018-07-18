@@ -28,13 +28,14 @@ export class CamperInfoComponent implements OnInit {
                   .map(row => CamperEntry.FromSheet(row))
                   .toArray().value();
     });
+    window.scrollTo(0, 0);
   }
 
   searchName($event) {
     if (this.searchedName) {
-      const searchTerm = _.trim(this.searchedName);
-      const startwith = _.filter(this.data, entry => _.startsWith(entry.getName(), searchTerm));
-      const contains = _.filter(this.data, entry => entry.getName().includes(searchTerm));
+      const searchTerm = _.toLower(_.trim(this.searchedName));
+      const startwith = _.filter(this.data, entry => _.startsWith(_.toLower(entry.getName()), searchTerm));
+      const contains = _.filter(this.data, entry => _.toLower(entry.getName()).includes(searchTerm));
       this.choices = _.uniq(_.concat(startwith, contains));
     }
   }
