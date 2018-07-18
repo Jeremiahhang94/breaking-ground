@@ -10,34 +10,6 @@ img {
 	
 }
 
-.fancy-title {
-	font-family:roboto-bold,roboto,sans-serif;
-	font-size: 50px;
-	text-align: center;
-	position: absolute;
-	height: 20;
-	left: 50%;
-	transform: translateX(-50%);
-	z-index: 1;
-	line-height: 1.3em;
-	padding: 0;
-}
-
-#title1 {
-	top: 10px;
-	color:#c63e46;
-}
-
-#title2 {
-	top: 20px;
-	color:#4254cd;
-}
-
-#title3 {
-	top: 30px;
-	color: #232329;
-}
-
 #timer {
 	font-size: 30px;
 	width: 100%;
@@ -50,10 +22,18 @@ img {
 	text-align: center;
 }
 
+.time-component span {
+	display: block;
+}
+
 .time-component:last-of-type {
 	margin-right: 0px;
 }
 
 .time-description {
 	font-size: 10px;
+}
+
+.event {
+	text-align: center;
 }

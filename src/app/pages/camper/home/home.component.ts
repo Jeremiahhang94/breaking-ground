@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { GoogleOAuthService } from '../../../service/google-o-auth.service';
+import { CountdownComponent } from '../countdown/countdown.component';
+import { ScheduleEntry } from '../../../model/ScheduleEntry.model';
 
 @Component({
   selector: 'app-home', 
@@ -10,6 +12,8 @@ export class HomeComponent implements OnInit {
 
   constructor(public googleOAuthService:GoogleOAuthService) { }
 
+  @ViewChild('countdownTimer') countdownTimer: CountdownComponent;
+
   ngOnInit() {
   }
 
@@ -19,6 +23,10 @@ export class HomeComponent implements OnInit {
 
   getLoginUrl() {
   	return this.googleOAuthService.getAuthUrl();
+  }
+
+  countdownTo($event: ScheduleEntry) {
+  	this.countdownTimer.countdownTo($event);
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { ScheduleService } from "../../../service/schedule.service";
 import { ScheduleEntry } from '../../../model/ScheduleEntry.model';
 import { CAMP_DAYS } from '../../../utils/campInfo.util';
@@ -14,6 +14,8 @@ export class ScheduleComponent implements OnInit {
   schedulelist: ScheduleEntry[];
   displayLoader: boolean;
   campIsOver = false;
+
+  @Output() countdownTo = new EventEmitter<ScheduleEntry> ();
 
   constructor(
     public scheduleService:ScheduleService
@@ -47,7 +49,10 @@ export class ScheduleComponent implements OnInit {
                             .dropWhile(entry => entry.isPast(now))
                             .slice(0, 3)
                             .toArray().value();
-      console.log(this.schedulelist);
+
+      if (this.schedulelist && this.schedulelist[0].shouldCountdownTo()) {
+        this.countdownTo.emit(this.schedulelist[0]);
+      }
     })
   }
 

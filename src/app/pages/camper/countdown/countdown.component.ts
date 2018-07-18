@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { interval } from 'rxjs';
+import { ScheduleEntry } from '../../../model/ScheduleEntry.model';
 import { environment } from '../../../../environments/environment';
+
 
 @Component({
   selector: 'app-countdown',
@@ -16,6 +18,8 @@ export class CountdownComponent implements OnInit {
   displayCountdown = true;
   countdownOver = false;
   logoSrc:string;
+  runningInterval: any;
+  event: string = ''
 
   constructor() { }
 
@@ -25,17 +29,31 @@ export class CountdownComponent implements OnInit {
     this.logoSrc = environment.logoSrc;
   }
 
+  countdownTo(date: ScheduleEntry) {
+    const after = date.getCountdownFromDate();
+    if (new Date() > after) {
+      this.activateCountdown(date.getDate());
+      this.event = date.getEvent();
+    }
+  }
+
   /**
    * if coundownTo === null then hide the html
    * else show the html
    */
   activateCountdown(countdownTo) {
-    if (countdownTo === null) {
+    if (countdownTo === null || new Date() > countdownTo) {
       this.displayCountdown = false;
     } else {
       this.displayCountdown = true;
+
+      // Clear any running interval
+      if (this.runningInterval) {
+        clearInterval(this.runningInterval);
+      }
+
       // Update the count down every 1 second
-      var x = setInterval(() => {
+      this.runningInterval = setInterval(() => {
         var now = new Date().getTime();
         var distance = countdownTo - now;
 
@@ -50,7 +68,7 @@ export class CountdownComponent implements OnInit {
 
         // If the count down is finished, write some text
         if (distance < 0) {
-          clearInterval(x);
+          clearInterval(this.runningInterval);
           this.countdownOver = true;
         }
       }, 1000);
