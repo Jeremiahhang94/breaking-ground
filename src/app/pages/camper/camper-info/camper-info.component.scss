@@ -1,5 +1,9 @@
 @import "../../../../styles.scss";
 
+mat-card, .mat-card{
+	box-shadow: none;
+}
+
 .full-width {
 	width: 55vw;
 }
