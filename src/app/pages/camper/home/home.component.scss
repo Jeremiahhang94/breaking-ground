@@ -8,3 +8,35 @@
 	padding: 0px;
 	width: 100%;
 }
+
+.login {
+	width: 100%;
+	text-align: center;
+	margin-top: 23vh;
+}
+
+img {
+	width: 100%;
+}
+
+.larger {
+	height: 35px;
+	width: 35px;
+	transform: translate(0, -1px);
+}
+
+.google-login {
+	padding: 0px;
+	background-color: #4285f4;
+}
+
+.google-login span.text {
+	color: white;
+	padding: 10px;
+}
+
+.notice {
+	color: $red;
+	width: 250px;
+	display: inline-block; 
+}

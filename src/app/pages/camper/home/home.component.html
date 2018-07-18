@@ -10,5 +10,9 @@
 	</mat-card> 
 </ng-container>
 <ng-container *ngIf="!isLoggedIn()">
-	<a [href]="getLoginUrl()"><button mat-raised-button> Login </button></a>
+	<div class ='login'>
+		<img [src]='logoSrc'>
+		<a [href]="getLoginUrl()"><button mat-raised-button class='google-login'> <mat-icon class="larger" svgIcon="google-logo">G</mat-icon> <span class='text'> Login With Google </span></button></a>
+		<p class='notice'> This app isn't verified --> advanced --> proceed </p>
+	</div>
 </ng-container>
