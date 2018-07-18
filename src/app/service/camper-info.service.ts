@@ -7,7 +7,7 @@ import { GooglesheetService } from './googlesheet.service';
 export class CamperInfoService {
 
 	sheetname = "camperInfo";
-	range = "A:E"
+	range = "A:D"
 
 	public getSheet() {
 		return this.googleSheetService.load(this.sheetname, this.range);

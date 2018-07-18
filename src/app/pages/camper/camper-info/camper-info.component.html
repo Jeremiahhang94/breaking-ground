@@ -9,11 +9,11 @@
 	</div>
 	<mat-chip-list class='choices'>
 		<mat-chip *ngFor="let choice of choices" (click)="setSelected(choice)"> 
-			{{ choice.getName() }}
+			<span class = 'predict-name'> {{ choice.getName() }} </span> <span class='lg'>{{ choice.getLg() }}</span> 
 		</mat-chip>
 	</mat-chip-list>
 	<mat-card class='result' *ngIf="selected">
-		<h2 class='name'> {{ selected.getName() }} </h2>
+		<h2 class='name'> {{ selected.getName() }} <span class = 'lg'>{{ selected.getLg() }}</span></h2>
 		<hr/>
 
 		<table>

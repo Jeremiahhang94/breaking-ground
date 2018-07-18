@@ -21,8 +21,12 @@ h1.section-title {
 	text-align: center;
 }
 
+.predict-name {
+	text-transform: capitalize;
+}
+
 .name {
-	text-transform: uppercase;
+	text-transform: capitalize;
 	color: $red;
 }
 
@@ -38,4 +42,19 @@ table {
 .accomodation label, .workshop label {
 	font-style: italic;
 	margin-right: 30px;
+}
+
+span.lg {
+	border-radius: 30px;
+	background-color: $blue !important;
+	font-size: 10px;
+	padding: 0px 10px;
+	color: $white;
+	margin-left: 10px;
+	width: auto;
+	height: auto;
+}
+
+.result span.lg {
+	padding: 3px 10px;
 }
