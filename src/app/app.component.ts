@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -12,12 +13,14 @@ export class AppComponent {
   constructor(
   	private router:Router
   ) {
-  	this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-      	console.log(event);
-        (<any>window).ga('set', 'page', event.urlAfterRedirects);
-        (<any>window).ga('send', 'pageview');
-      }
-    });
+  	if (environment.production) {
+  		this.router.events.subscribe(event => {
+	      if (event instanceof NavigationEnd) {
+	      	console.log(event);
+	        (<any>window).ga('set', 'page', event.urlAfterRedirects);
+	        (<any>window).ga('send', 'pageview');
+	      }
+	    });
+  	}
   }
 }
