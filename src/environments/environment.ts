@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   redirectUri: "http://localhost:4201/redirect",
   sheetId: "1oKsI1zJVg509jdNbXGumd1B0h5JxBSCfDLKFNWh2Gz4",
-  logoSrc: "/assets/images/background.png"
+  logoSrc: "/assets/images/background.png",
+  trackingId: "UA-122498528-1"
 };
 
 /*
