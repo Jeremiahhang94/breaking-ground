@@ -24,7 +24,7 @@ export class FooterComponent implements OnInit {
   }
 
   isLoggedIn() {
-  	return this.googleOAuthService.hasOAuth();
+   	return this.googleOAuthService.hasOAuth();
   }
 
 }
