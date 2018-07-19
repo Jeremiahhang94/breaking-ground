@@ -3,5 +3,8 @@
     <a mat-icon-button [routerLink]="['']" href='#'>
       <mat-icon svgIcon="home-icon">home</mat-icon>
     </a>
+    <a mat-icon-button [routerLink]="['']" (click)="onClickedCopyToClipboard()">
+      <mat-icon svgIcon="announcement-icon">announcement</mat-icon>
+    </a>
   </mat-toolbar-row>
 </mat-toolbar>

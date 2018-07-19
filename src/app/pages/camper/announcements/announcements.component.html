@@ -1,9 +1,16 @@
 <mat-spinner class="spinner" *ngIf="displayLoader"></mat-spinner>
 <mat-card class = 'base'>
 	<h1 class = 'section-title'> Announcements </h1>
-	<mat-card class = 'announcement' *ngFor="let anno of announcementlist; let i = index">
-		<p class = 'index'>0{{i + 1}}</p>
-		<hr/>
-		<p class = 'description'>{{ anno.getDescription() }}</p>
+	<div *ngIf="!displayCopy">
+		<mat-card class = 'announcement' *ngFor="let anno of announcementlist; let i = index">
+			<p class = 'index'>0{{i + 1}}</p>
+			<hr/>
+			<p class = 'description'>{{ anno.getDescription() }}</p>
+		</mat-card>
+	</div>
+	<mat-card class = 'announcement' *ngIf="displayCopy">
+		<mat-form-field class="clipboard">
+		    <textarea matInput placeholder="clipboard">{{this.clipboardMsg}}</textarea>
+		</mat-form-field>
 	</mat-card>
 </mat-card>

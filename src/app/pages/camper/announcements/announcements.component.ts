@@ -12,6 +12,8 @@ export class AnnouncementsComponent implements OnInit {
   
   announcementlist: AnnouncementEntry[] = [];
   displayLoader: boolean;
+  displayCopy: boolean;
+  clipboardMsg;
   
   constructor(
     public annoService:AnnouncementsService
@@ -20,10 +22,24 @@ export class AnnouncementsComponent implements OnInit {
   ngOnInit() {
 
     this.displayLoader = true;
+    this.displayCopy = false;
+    this.clipboardMsg = '';
     this.annoService.getSheet().subscribe(res => {
       this.announcementlist = _(res.values).drop().map(anno => AnnouncementEntry.FromSheet(anno))
                                     .toArray().value();
+      this.displayLoader = false;
     })
+
+    this.annoService.getAnnouncementEmitters()
+      .subscribe(() => {
+        this.displayCopy = true;
+
+        for(let i=0; i<this.announcementlist.length; i++){
+          this.clipboardMsg += i+1 + '. ';
+          this.clipboardMsg += this.announcementlist[i].getDescription();
+        }
+
+    });
   }
 
 
