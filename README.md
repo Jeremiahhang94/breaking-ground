@@ -19,7 +19,7 @@ git clone <my forked repo>
 
 3) Set up remote upstream
 ```bash
-git remote add upstream https://github.com/jeremiah-ang/hopeuni-camp
+git remote add upstream https://github.com/hope-uni/breaking-ground
 ```
 
 4) run `npm install`
@@ -66,8 +66,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 We are working on it to give the camp committee a solid preview of how they can work with the system, but right now all I can provide is a detailed list of the features.
 
-- Camper's View - `https://jeremiah-ang.github.io/hopeuni/`
-- Camp Committee's View - `(WIP)`
+- Camper's View - `https://hope-uni.github.io/breaking-ground/`
 
 ## Features
 - Announcements + Countdown + Schedule
@@ -97,4 +96,4 @@ I have created some issues that we have that needs to be fixed, maybe you can st
 
 ## Link to sheet (view-only)
 
-`https://docs.google.com/spreadsheets/d/1CaSxTF0GTyjppwlmiuCN36dYt_tjw31E8zYfLJh4grM/edit?usp=sharing`
+`https://docs.google.com/spreadsheets/d/1tPlvjGccIiwq-kWWe2G0LUVNAitdBqlo8n8LbF98ePE/edit#gid=0`
