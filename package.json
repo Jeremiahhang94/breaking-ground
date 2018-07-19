@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 4201 --open",
-    "build": "ng build --prod --base-href /hopeuni-camp/",
+    "build": "ng build --prod --base-href /breaking-ground/",
     "deploy": "npm run build && cd dist && cp index.html 404.html && gh-pages -d .",
     "test": "ng test",
     "lint": "ng lint",
