@@ -10,7 +10,7 @@
             <div *ngIf="iconHolder(i)" >          
               <mat-icon class='icon-size' svgIcon= {{tile.icon}} >icon</mat-icon>
             </div> 
-            <p>{{tile.text}}</p>
+            <p [innerHTML]="tile.text"></p>
           </mat-card-content>
     </mat-grid-tile>
   </mat-grid-list>

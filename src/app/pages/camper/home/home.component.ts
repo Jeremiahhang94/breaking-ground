@@ -14,6 +14,7 @@ import { MatIconRegistry } from '@angular/material';
 export class HomeComponent implements OnInit {
 
   logoSrc: string = environment.logoSrc;
+  countdownTo: ScheduleEntry;
 
   constructor(
     iconRegistry: MatIconRegistry, 
@@ -22,6 +23,9 @@ export class HomeComponent implements OnInit {
     iconRegistry.addSvgIcon(
       'google-logo',
       sanitizer.bypassSecurityTrustResourceUrl('assets/images/google-logo.svg'));
+    iconRegistry.addSvgIcon(
+      'camp-logo',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/images/camp-logo.svg'));
   }
 
   @ViewChild('countdownTimer') countdownTimer: CountdownComponent;
@@ -37,8 +41,8 @@ export class HomeComponent implements OnInit {
     return this.googleOAuthService.getAuthUrl();
   }
 
-  countdownTo($event: ScheduleEntry) {
-    this.countdownTimer.countdownTo($event);
+  onCountdownTo($event: ScheduleEntry) {
+    this.countdownTo = $event;
   }
 
 }

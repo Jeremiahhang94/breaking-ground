@@ -27,6 +27,7 @@ export class ScheduleEntry {
 
 		if (this.countdownTo) {
 			this.countdownFromDate = new Date((+this.date) - (+this.countdownTo) * 60000); 
+			console.log(this.countdownFromDate);
 		}
 
 	}
@@ -44,7 +45,7 @@ export class ScheduleEntry {
 	}
 
 	shouldCountdownTo(): boolean {
-		return this.getCountdownFromDate() === null;
+		return this.getCountdownFromDate() !== null;
 	}
 
 	getCountdownFromDate(): Date {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { interval } from 'rxjs';
 import { ScheduleEntry } from '../../../model/ScheduleEntry.model';
 import { environment } from '../../../../environments/environment';
@@ -21,20 +21,22 @@ export class CountdownComponent implements OnInit {
   runningInterval: any;
   event: string = ''
 
+  @Input()
+  set countdownTo(date: ScheduleEntry) {
+    if (!date) return;
+    const after = date.getCountdownFromDate();
+    if (new Date() > after) {
+      this.activateCountdown(date.getDate());
+      this.event = date.getEvent();
+    }
+  }
+
   constructor() { }
 
   ngOnInit() {
     var campDay1 = new Date(2018, 6, 20); // 20th July
     this.activateCountdown(campDay1);
     this.logoSrc = environment.logoSrc;
-  }
-
-  countdownTo(date: ScheduleEntry) {
-    const after = date.getCountdownFromDate();
-    if (new Date() > after) {
-      this.activateCountdown(date.getDate());
-      this.event = date.getEvent();
-    }
   }
 
   /**

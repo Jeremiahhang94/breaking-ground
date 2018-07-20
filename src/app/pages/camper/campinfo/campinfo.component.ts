@@ -54,7 +54,7 @@ export class CampInfoComponent implements OnInit {
     { icon: 'lost-items', cols: 1, rows: 2, color: '#3454d1' },
     { cols: 1, rows: 1},
 
-    { title: 'FIRST AID', text: 'Medics for each campus: NUS (Celine), SIM (Nigel & Qian Wen), SMU (Joreene, Shana), NYC (Joshua), NS (Rui Qiang)', cols: 2, rows: 4, color: '#da3c45' },
+    { title: 'FIRST AID', text: 'Medics for each campus: NUS (Celine),<br/>SIM (Nigel & Qian Wen),<br/>SMU (Joreene, Shana),<br/>NYC (Joshua),<br/>NS (Rui Qiang)', cols: 2, rows: 4, color: '#da3c45' },
     { cols: 1, rows: 1, color: '#' },
     { icon: 'plaster', cols: 1, rows: 2, color: '#3454d1' },
     { cols: 1, rows: 1 },

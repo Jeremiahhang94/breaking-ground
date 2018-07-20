@@ -1,18 +1,18 @@
 <ng-container *ngIf="isLoggedIn()">
 	<mat-card class = 'countdown'>
-		<app-countdown #countdownTimer></app-countdown>
+		<app-countdown #countdownTimer [countdownTo]="countdownTo"></app-countdown>
 	</mat-card> 
 	<mat-card class = 'full'>
 		<app-announcements></app-announcements>
 	</mat-card>
 	<mat-card class = 'full'>
-		<app-schedule (countdownTo)="countdownTo($event)"></app-schedule>
+		<app-schedule (countdownTo)="onCountdownTo($event)"></app-schedule>
 	</mat-card> 
 </ng-container>
 
 <ng-container *ngIf="!isLoggedIn()">
 	<div class ='login'>
-		<img [src]='logoSrc'>
+		<mat-icon svgIcon="camp-logo">+</mat-icon>
 		<a [href]="getLoginUrl()"><button mat-raised-button class='google-login'> <mat-icon class="larger" svgIcon="google-logo">G</mat-icon> <span class='text'> Login With Google </span></button></a>
 		<p class='notice'> This app isn't verified --> advanced --> proceed </p>
 	</div>

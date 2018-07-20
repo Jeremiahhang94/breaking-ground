@@ -3,6 +3,7 @@
   height: $size;
   width: $size;
   line-height: $size;
+  padding-top: 30px;
 }
 
 .grids {
@@ -13,6 +14,10 @@
     color: white;
 }
 
+.grids p {
+    font-size: 14px;
+}
+
 .border {
     border-radius: 1vw;
 }
@@ -20,4 +25,5 @@
 .icon-size {
  color: white;
  @include md-icon-size(20vw)
+
 }

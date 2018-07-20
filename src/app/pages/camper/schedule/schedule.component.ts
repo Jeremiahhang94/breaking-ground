@@ -29,11 +29,11 @@ export class ScheduleComponent implements OnInit {
   }
 
   private loadSchedule(today) {
-    if (today < CAMP_DAYS[1]) {
+    if (today <= CAMP_DAYS[1]) {
       this.fetch(1);
-    } else if (today < CAMP_DAYS[2]) {
+    } else if (today == CAMP_DAYS[2]) {
       this.fetch(2);
-    } else if (today < CAMP_DAYS[3]) {
+    } else if (today == CAMP_DAYS[3]) {
       this.fetch(3);
     } else {
       this.campIsOver = true;
@@ -50,6 +50,7 @@ export class ScheduleComponent implements OnInit {
                             .slice(0, 3)
                             .toArray().value();
 
+      console.log(this.schedulelist[0].shouldCountdownTo());
       if (this.schedulelist && this.schedulelist[0].shouldCountdownTo()) {
         this.countdownTo.emit(this.schedulelist[0]);
       }
