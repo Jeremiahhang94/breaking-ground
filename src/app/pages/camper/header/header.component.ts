@@ -30,4 +30,8 @@ export class HeaderComponent implements OnInit {
     return this.googleOAuthService.hasOAuth();
   }
 
+  hardrefresh() {
+    return localStorage.clear();
+  }
+
 }
