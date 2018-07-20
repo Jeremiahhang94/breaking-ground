@@ -50,7 +50,7 @@ export class CampInfoComponent implements OnInit {
 
   tiles: any = [
     { cols: 1, rows: 1},
-    { title: 'LOST & FOUND', text: 'Lost something? Head on over to XYZ right now to claim your items', cols: 2, rows: 4, color: '#da3c45' },
+    { title: 'LOST & FOUND', text: 'We will update this soon >.<', cols: 2, rows: 4, color: '#da3c45' },
     { icon: 'lost-items', cols: 1, rows: 2, color: '#3454d1' },
     { cols: 1, rows: 1},
 
