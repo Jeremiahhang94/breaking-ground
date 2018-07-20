@@ -50,7 +50,6 @@ export class ScheduleComponent implements OnInit {
                             .slice(0, 3)
                             .toArray().value();
 
-      console.log(this.schedulelist[0].shouldCountdownTo());
       if (this.schedulelist && this.schedulelist[0].shouldCountdownTo()) {
         this.countdownTo.emit(this.schedulelist[0]);
       }

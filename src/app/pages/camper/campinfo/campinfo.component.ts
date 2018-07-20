@@ -54,13 +54,13 @@ export class CampInfoComponent implements OnInit {
     { icon: 'lost-items', cols: 1, rows: 2, color: '#3454d1' },
     { cols: 1, rows: 1},
 
-    { title: 'FIRST AID', text: 'Medics for each campus: NUS (Celine),<br/>SIM (Nigel & Qian Wen),<br/>SMU (Joreene, Shana),<br/>NYC (Joshua),<br/>NS (Rui Qiang)', cols: 2, rows: 4, color: '#da3c45' },
+    { title: 'FIRST AID', text: 'Medics for each campus: <b>NUS</b> (Celine),<br/><b>SIM</b> (Nigel & Qian Wen),<br/><b>SMU</b> (Joreene, Shana),<br/><b>NYC</b> (Joshua),<br/><b>NS</b> (Rui Qiang)<br/>Can\'t reach them? Call Qian Wen at <b>8163 1596</b>.', cols: 2, rows: 4, color: '#da3c45' },
     { cols: 1, rows: 1, color: '#' },
     { icon: 'plaster', cols: 1, rows: 2, color: '#3454d1' },
     { cols: 1, rows: 1 },
 
     { cols: 1, rows: 1},
-    { title: 'ADMINISTRATIVE', text: 'Look for Jesus or call 98123456 for assistance', cols: 2, rows: 4, color: '#da3c45' },
+    { title: 'ADMINISTRATIVE', text: 'Look for <b>Jesus</b> or call <b>Anthea</b> for assistance', cols: 2, rows: 4, color: '#da3c45' },
     { icon: 'telephone', cols: 1, rows: 2, color: '#3454d1' },
     { cols: 1, rows: 1},
   ];

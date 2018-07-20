@@ -3,7 +3,7 @@
 	  <mat-card class='campSchedule footerItem' align='center'>
 	    <h1 class='footer-title'>CAMP SCHEDULE</h1>
 	    <mat-card-content>
-	      <p class='footerText'>Find out what programme is happening now, later and what to bring</p>
+	      <p class='footerText'>Need to know the whole schedule for this camp?</p>
 	    </mat-card-content>
 	    <mat-card-actions>
 	      <mat-icon class="black" svgIcon="forward-arrow">-></mat-icon>
@@ -15,23 +15,13 @@
 	  <mat-card class='campersInfo footerItem' align='center'>
 	    <h1 class='footer-title'>CAMPERS INFO</h1>
 	    <mat-card-content>
-	      <p class='footerText'>Check out what workshop you belong to and what to bring for it</p>
+	      <p class='footerText'>Check out your accomodation and workshop allocation</p>
 	    </mat-card-content>
 	    <mat-card-actions>
 	      <mat-icon svgIcon="forward-arrow">-></mat-icon>
 	    </mat-card-actions>
 	  </mat-card>
 	</a>
-
-	<mat-card class='thanksgiving footerItem' align='center'>
-	  <h1 class='footer-title'>THANKSGIVING</h1>
-	  <mat-card-content>
-	    <p class='footerText'>Share with us your testimonies and breakthroughs during camp!</p>
-	  </mat-card-content>
-	  <mat-card-actions>
-	    <mat-icon svgIcon="forward-arrow">-></mat-icon>
-	  </mat-card-actions>
-	</mat-card>
 
 	<a [routerLink]="['campinfo']" href='#'>
 		<mat-card class='campInfo footerItem' align='center'>
@@ -42,6 +32,18 @@
 			<mat-card-actions>
 				<mat-icon svgIcon="forward-arrow">-></mat-icon>
 			</mat-card-actions>
+		</mat-card>
+	</a>
+
+	<a href="https://goo.gl/forms/tvGIK2DT7b7PQm2Z2">
+		<mat-card class='thanksgiving footerItem' align='center'>
+		  <h1 class='footer-title'>THANKSGIVING</h1>
+		  <mat-card-content>
+		    <p class='footerText'>Share with us your testimonies and breakthroughs during camp!<br/><i>(redirects to google sheet)</i></p>
+		  </mat-card-content>
+		  <mat-card-actions>
+		    <mat-icon svgIcon="forward-arrow">-></mat-icon>
+		  </mat-card-actions>
 		</mat-card>
 	</a>
 </ng-container>

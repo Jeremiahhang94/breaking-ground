@@ -15,6 +15,7 @@ export class CamperInfoComponent implements OnInit {
   choices: CamperEntry[] = []
   searchedName: string;
   selected: CamperEntry;
+  msg: string = ""
 
   constructor(
   	public camperInfoService:CamperInfoService
@@ -36,12 +37,19 @@ export class CamperInfoComponent implements OnInit {
       const searchTerm = _.toLower(_.trim(this.searchedName));
       const startwith = _.filter(this.data, entry => _.startsWith(_.toLower(entry.getName()), searchTerm));
       const contains = _.filter(this.data, entry => _.toLower(entry.getName()).includes(searchTerm));
-      this.choices = _.uniq(_.concat(startwith, contains));
+      this.choices = _.slice(_.uniq(_.concat(startwith, contains)), 0, 20);
+      if (this.choices.length === 0) {
+        this.msg = "No Camper Found!";
+      } else {
+        this.msg = "Only showing top 20, Don't See your name? Try refining the search term";
+      }
     }
   }
 
   setSelected(entry) {
     this.selected = entry;
+    this.choices = [];
+    this.msg = "Incorrect Information? Contact your lgl :)";
   }
 
 }

@@ -41,7 +41,6 @@ export class GooglesheetService {
   }
 
   private loadCache(sheetname: string, range: string): Observable<any> {
-    console.log ("LOAD CACHE!");
     return Observable.create(observer => {
       const data = JSON.parse(localStorage.getItem(this.cacheKey(sheetname, range)));
       console.log();
@@ -51,7 +50,6 @@ export class GooglesheetService {
   }
 
   private loadApi(sheetname: string, range: string):Observable<any> {
-    console.log ("LOAD API!");
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${this.googleOAuthService.getAccessToken()}`

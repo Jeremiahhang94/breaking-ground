@@ -8,6 +8,11 @@ mat-card, .mat-card{
 	width: 55vw;
 }
 
+.empty-result {
+	color: $red;
+	text-align: center;
+}
+
 .seachButton, .seachButton.mat-raised-button.mat-primary {
 	width: 20vw;
 	margin-left: 5vw;

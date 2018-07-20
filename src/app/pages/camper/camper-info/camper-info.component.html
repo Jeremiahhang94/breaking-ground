@@ -7,11 +7,13 @@
 
 		<button mat-raised-button class="seachButton" (click)="searchName($event)">Search</button>
 	</div>
-	<mat-chip-list class='choices'>
+	<mat-chip-list class='choices' *ngIf="choices.length > 0">
 		<mat-chip *ngFor="let choice of choices" (click)="setSelected(choice)"> 
 			<span class = 'predict-name'> {{ choice.getName() }} </span> <span class='lg'>{{ choice.getLg() }}</span> 
 		</mat-chip>
 	</mat-chip-list>
+	<p class = 'empty-result' *ngIf="msg">{{ msg }}</p>
+
 	<mat-card class='result' *ngIf="selected">
 		<h2 class='name'> {{ selected.getName() }} <span class = 'lg'>{{ selected.getLg() }}</span></h2>
 		<hr/>
