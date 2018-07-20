@@ -7,6 +7,7 @@ import { ScheduleFullComponent } from "./pages/camper/schedule/schedule-full/sch
 import { CamperInfoComponent } from "./pages/camper/camper-info/camper-info.component";
 import { RedirectComponent } from "./pages/camper/redirect/redirect.component";
 import { CampInfoComponent } from './pages/camper/campinfo/campinfo.component';
+import { PolicyComponent } from "./pages/policy/policy.component";
 
 const routes: Routes = [
 	{
@@ -28,6 +29,10 @@ const routes: Routes = [
 	{
 		path: 'campinfo',
 		component: CampInfoComponent
+	},
+	{
+		path: 'policy',
+		component: PolicyComponent
 	},
 	{
 		path: '**',

@@ -12,3 +12,15 @@ mat-toolbar-row {
 	background-color: $white;
 	border: none;
 }
+
+.privacy {
+	width: 90%; 
+	text-align: right; 
+}
+
+.privacy a {
+	color: #ccc; 
+	text-decoration: none;
+	font-weight: thin;
+	font-size: 10px;
+}

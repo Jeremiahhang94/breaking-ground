@@ -36,6 +36,7 @@ import { ScheduleFullComponent } from './pages/camper/schedule/schedule-full/sch
 import { RedirectComponent } from './pages/camper/redirect/redirect.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { PolicyComponent } from './pages/policy/policy.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     RedirectComponent,
     HeaderComponent,
     CampInfoComponent,
+    PolicyComponent,
   ],
   imports: [
     BrowserModule,
