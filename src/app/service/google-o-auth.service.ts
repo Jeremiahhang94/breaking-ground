@@ -59,9 +59,10 @@ export class GoogleOAuthService {
   }
 
   hasOAuth():boolean {
-    return localStorage.getItem("access_token") != null && 
-          localStorage.getItem("expires_in") != null &&
-          new Date(localStorage.getItem("expires_in")).getTime() - new Date().getTime() > 0;
+    return true;
+    // return localStorage.getItem("access_token") != null && 
+    //       localStorage.getItem("expires_in") != null &&
+    //       new Date(localStorage.getItem("expires_in")).getTime() - new Date().getTime() > 0;
   }
 
   validateOAuth(access_token: String): Observable<any> {

@@ -11,6 +11,7 @@ import { GoogleOAuthService } from './google-o-auth.service';
 export class GooglesheetService {
 
   SHEET_ID = environment.sheetId;
+  API_KEY = environment.apiKey;
 
   public load(sheetname: string, range: string):Observable<any> {
     if (this.cached(sheetname, range)) {
@@ -51,10 +52,10 @@ export class GooglesheetService {
 
   private loadApi(sheetname: string, range: string):Observable<any> {
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${this.googleOAuthService.getAccessToken()}`
+      'Content-Type': 'application/json'
     });
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${this.SHEET_ID}/values/${sheetname}!${range}`;
+    const url = `https://sheets.googleapis.com/v4/spreadsheets/${this.SHEET_ID}/values/${sheetname}!${range}?key=${this.API_KEY}`;
+    console.log(url);
     return this.http.get(url, { headers });
   }
 
